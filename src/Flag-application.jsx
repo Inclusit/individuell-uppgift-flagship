@@ -4,7 +4,6 @@ import Flags from "./Flags";
 export default function FlagApplication() {
     const [continent, setContinent] = useState("");
     const [countries, setCountries] = useState([]);
-    const [flags, setFlags] = useState([]);
     const [showFlag, setShowFlag] = useState(false)
 
     useEffect(() => {
@@ -29,9 +28,9 @@ export default function FlagApplication() {
             <div className="optionContainer" id="optionContainer" style={{display:"flex", gap:"10px", marginBottom:"10px"}}>
                 <fieldset className="radioContainer">
                     <legend>Choose your continent</legend>
-                        <label><input type="radio" value="africa" checked={continent === "africa"} onChange={()=>setContinent("africa")} id="anyContinent" />Afrika</label>
-                        <label><input type="radio" value="asia" checked={continent === "asia"} onChange={() => setContinent("asia")} id="anyContinent" />Asia</label>
-                        <label><input type="radio" value="europe" checked={continent === "europe"} onChange={() => setContinent("europe")} id="anyContinent" />Europe</label>
+                        <label><input type="radio" value="africa" id="anyContinent" checked={continent === "africa"} onChange={()=>setContinent("africa")}  />Afrika</label>
+                        <label><input type="radio" value="asia" id="anyContinent" checked={continent === "asia"} onChange={() => setContinent("asia")} />Asia</label>
+                        <label><input type="radio" value="europe" id="anyContinent" checked={continent === "europe"} onChange={() => setContinent("europe")} />Europe</label>
                 </fieldset>
                 <fieldset>
                     <legend>Choose your country</legend>
@@ -43,8 +42,8 @@ export default function FlagApplication() {
                     </select>
                 </fieldset>
             </div>
-            <button onClick={() => setShowFlag(!showFlag)}>Show me your flag</button>
-            {showFlag && <Flags flags={flags} setFlags={setFlags}/>}
+            <button onClick={() => setShowFlag(!showFlag)}>Fetch ye flag, matey</button>
+            {showFlag && <Flags country={countries}/>}
 
         </>
     );
