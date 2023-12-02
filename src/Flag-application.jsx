@@ -33,16 +33,7 @@ export default function FlagApplication() {
                         <label><input type="radio" value="europe" id="anyContinent" checked={region === "europe"} onChange={() => setRegion("europe")} />Europe</label>
                 </fieldset>
 
-                    
-{/*                 <fieldset>
-                    <legend>Choose your country</legend>
-                    <select>
-                        <option value="">Choose your country</option>
-                        {countries.map((country) => (
-                            <option value={country.name.common}>{country.name.common}</option>
-                        ))}
-                    </select>
-                </fieldset> */}
+
             </div>
             <button onClick={() => setShowFlags(!showFlags)}>Fetch ye flags, matey</button>
             <div><ul>{showFlags && <Flags countries={countries}/>}</ul></div>
